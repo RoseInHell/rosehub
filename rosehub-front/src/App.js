@@ -5,14 +5,16 @@ import { Provider } from 'react-redux';
 
 import store from '@/store';
 import routes from '@/router'
+import LSAppHeader from '@/components/app-header'
 
 export default memo(function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-       <Suspense fallback={<div>page loading</div>}>
+        <LSAppHeader/>
+        <Suspense fallback={<div>page loading</div>}>
         {renderRoutes(routes)}
-       </Suspense>
+        </Suspense>
       </BrowserRouter>
     </Provider>
   )

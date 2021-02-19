@@ -14,7 +14,7 @@ const routes = [
   {
     path: "/home",
     component: LSHome
-  },
+  }
 ]
 
 export default routes;
