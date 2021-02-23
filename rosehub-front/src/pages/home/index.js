@@ -2,6 +2,10 @@ import React, { memo, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { getTestAction } from '../home/store/actionCreators';
+import Swiper from './c-paegs/swiper';
+import {
+  HomeWrapper
+} from './style';
 
 export default memo(function LSHome() {
 
@@ -20,8 +24,8 @@ export default memo(function LSHome() {
   }, [dispatch])
 
   return (
-    <div>
-      home
-    </div>
+    <HomeWrapper className="wrap-v2">
+      <Swiper/>
+    </HomeWrapper>
   )
 })

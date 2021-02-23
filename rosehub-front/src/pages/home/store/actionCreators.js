@@ -10,7 +10,6 @@ const changeTestAction = (res) => ({
 export const getTestAction = () => {
   return dispatch => {
     getTest().then(res => {
-      console.log(res)
       dispatch(changeTestAction(res))
     })
   }
