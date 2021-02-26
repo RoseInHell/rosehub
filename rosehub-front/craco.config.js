@@ -1,6 +1,7 @@
 const path = require('path');
-
 const resolve = dir => path.resolve(__dirname, dir);
+const CracoLessPlugin = require('craco-less');
+
 
 
 module.exports = {
@@ -8,20 +9,30 @@ module.exports = {
     alias: {
       "@": resolve("src")
     },
-    module: {
-      rules: [
+  },
+  babel: {
+    plugins: [
+      [
+        "import",
         {
-          test: /\.js|jsx$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: 'babel-loader',
-          query: {
-            presets: ['es2015','react'],
-            plugins: [
-              ["import",{ libraryName: "antd",style: "css"}]
-            ]
-          }
-        },
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
       ]
+    ]
+  },
+  plugins: [
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { '@primary-color': '#1DA57A' },
+            javascriptEnabled: true,
+          },
+        },
+      },
     }
-  }
+  ],
 }
